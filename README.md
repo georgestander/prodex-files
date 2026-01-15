@@ -12,3 +12,5 @@ Key ideas:
 
 Start Codex with a read-only rehydrate prompt:
 - `tooling/codex_ps.sh`
+
+See `WORKFLOW.md` for how this stays separate from your personal instance repo.
