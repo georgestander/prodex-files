@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "id": "YYYYMMDD_HHMMSS",
+  "started_at": null,
+  "ended_at": null,
+  "intent": "",
+  "tags": [],
+  "project": null,
+  "paths_read": [],
+  "paths_written": [],
+  "outcomes": [],
+  "followups": [],
+  "log_cursor": {
+    "from_ts": null,
+    "to_ts": null
+  }
+}

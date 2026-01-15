@@ -1,0 +1,40 @@
+{
+  "schema_version": 2,
+  "default_mode": "AUTO",
+  "preferences": {
+    "daily_memory_mode": "reconstruct",
+    "agent_md_budget_lines": 120
+  },
+  "active": {
+    "project": null,
+    "context_paths": [
+      ".agent/POLICY.md",
+      ".agent/STATE.json",
+      ".agent/AGENT.md",
+      "notes/persona.md",
+      "tasks/tasks.md"
+    ],
+    "current_goals": []
+  },
+  "queue": {
+    "next_actions": [],
+    "blocked": []
+  },
+  "pinned": {
+    "paths": [
+      "notes/persona.md",
+      "tasks/tasks.md"
+    ]
+  },
+  "cursors": {
+    "log": {
+      "last_ts": null,
+      "last_seen_by_tag": {}
+    }
+  },
+  "last_session": {
+    "id": null,
+    "started_at": null,
+    "ended_at": null
+  }
+}
