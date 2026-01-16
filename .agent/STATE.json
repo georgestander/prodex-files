@@ -10,9 +10,7 @@
     "context_paths": [
       ".agent/POLICY.md",
       ".agent/STATE.json",
-      ".agent/AGENT.md",
-      "notes/persona.md",
-      "tasks/tasks.md"
+      ".agent/AGENT.md"
     ],
     "current_goals": []
   },
@@ -22,8 +20,6 @@
   },
   "pinned": {
     "paths": [
-      "notes/persona.md",
-      "tasks/tasks.md"
     ]
   },
   "cursors": {

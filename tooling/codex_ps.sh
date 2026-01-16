@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Personal Software repo launcher:
+# Prodex repo launcher:
 # Starts Codex in this repo and sends an initial REHYDRATE instruction so the
 # model loads our SSOT files into context on startup.
 
