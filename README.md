@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/prodex.svg" alt="prodex" width="220" />
+</p>
+
 # prodex
 
 A file-first, primitives-only personal agent scaffold.
@@ -5,6 +9,55 @@ A file-first, primitives-only personal agent scaffold.
 This repo is a **framework**: it defines conventions, templates, and a minimal filesystem-based “operating system” for an agent.
 
 It is **not** your personal memory by itself. “Memory” is created as you use it (via logs, state, sessions, and entity notes).
+
+## Install Codex CLI
+
+Prodex is designed to be run with **OpenAI Codex CLI**.
+
+- Docs: https://developers.openai.com/codex
+- Source: https://github.com/openai/codex
+- npm package: https://www.npmjs.com/package/@openai/codex
+
+Install via npm:
+```sh
+npm install -g @openai/codex
+codex --version
+```
+
+## Authenticate (ChatGPT sign-in or API key)
+
+### ChatGPT sign-in
+
+Run:
+```sh
+codex login
+```
+
+Check status:
+```sh
+codex login status
+```
+
+If you’re on a remote machine without a browser:
+```sh
+codex login --device-auth
+```
+
+### API key
+
+Pipe `OPENAI_API_KEY` into Codex:
+```sh
+printenv OPENAI_API_KEY | codex login --with-api-key
+```
+
+## Quick start (recommended)
+
+From the repo root:
+```sh
+./tooling/codex_ps.sh
+```
+
+This starts Codex in this repo and sends a **read-only rehydrate** prompt first, so the agent loads the SSOT files before doing anything else.
 
 ## How it "remembers"
 
@@ -17,13 +70,11 @@ In prodex, memory is explicit and inspectable:
 - **Run artifacts**: `sessions/<session_id>/...`
 - **Entity-scoped meaning**: `entities/<type>/<slug>/notes.md`
 
-## First run (recommended)
+## First run (manual rehydrate prompt)
 
-1) Open this repo in a terminal.
-2) Start Codex and send a read-only rehydrate prompt *as your first message*.
+If you don’t want to use `./tooling/codex_ps.sh`, start Codex and send this as your first message:
 
-Copy/paste this as the first prompt:
-
+```text
 REHYDRATE (READ-ONLY):
 - Do NOT edit/write/create/move/delete any files.
 - Do NOT run commands that mutate state.
@@ -38,6 +89,7 @@ Steps:
 Output:
 - Summarize: (1) what we are doing, (2) what is active now, (3) what to do next.
 - Then ask me what I want to do.
+```
 
 ## What to customize
 
