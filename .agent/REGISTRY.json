@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-01-19",
+  "workspace": {
+    "name": "prodex",
+    "kind": "system",
+    "description": "File-first personal agent scaffold (system/framework repo)."
+  },
+  "paths": {
+    "agent_dir": ".agent",
+    "approvals_dir": "entities/approvals",
+    "entities_dir": "entities",
+    "notes_dir": "entities/notes",
+    "projects_dir": "entities/projects",
+    "prompts_dir": "entities/prompts",
+    "sessions_dir": "entities/sessions",
+    "tasks_dir": "entities/tasks",
+    "tooling_dir": "entities/tooling"
+  },
+  "tools": [
+    {
+      "id": "tooling.codex_ps",
+      "kind": "script",
+      "path": "entities/tooling/codex_ps.sh",
+      "run": "./entities/tooling/codex_ps.sh",
+      "risk": "low",
+      "writes": []
+    },
+    {
+      "id": "tooling.new_session",
+      "kind": "script",
+      "path": "entities/tooling/new_session.sh",
+      "run": "./entities/tooling/new_session.sh",
+      "risk": "low",
+      "writes": ["entities/sessions/<session_id>"]
+    },
+    {
+      "id": "tooling.new_entity",
+      "kind": "script",
+      "path": "entities/tooling/new_entity.sh",
+      "run": "./entities/tooling/new_entity.sh <type> <slug>",
+      "risk": "low",
+      "writes": ["entities/<type>/<slug>"]
+    }
+  ],
+  "approval": {
+    "model": "draft-approve-execute",
+    "queue_dir": "entities/approvals",
+    "states": ["pending", "approved", "executed", "rejected"]
+  }
+}

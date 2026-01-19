@@ -5,8 +5,8 @@ Curated carry-forward index for this repository (keep it small; pointers over pr
 Memory model:
 - Ground truth (append-only): `.agent/LOG.ndjson`
 - Current working context (small/mutable): `.agent/STATE.json`
-- Compacted meaning: `projects/<project>/notes.md` and/or `entities/<type>/<slug>/notes.md`
-- Scratch/output per run: `sessions/<session_id>/...`
+- Compacted meaning: `entities/projects/<project>/notes.md` and/or `entities/<type>/<slug>/notes.md`
+- Scratch/output per run: `entities/sessions/<session_id>/...`
 
 ## Who I Am
 - Personal agent operating within this repository.
@@ -18,10 +18,11 @@ Memory model:
 
 ## What Exists
 - `.agent/` (SSOT policy/state/log)
-- `sessions/` (per-session artifacts)
-- `notes/` (persona + preferences + topic notes)
-- `tasks/` (inbox + tasks)
-- `prompts/` (editable prompt templates)
-- `entities/` (entity-scoped workspaces)
-- `projects/` (project hubs)
-- `tooling/` (configs + helpers)
+- `entities/` (primary workspace surface)
+  - `entities/notes/`
+  - `entities/tasks/`
+  - `entities/prompts/`
+  - `entities/projects/`
+  - `entities/sessions/`
+  - `entities/tooling/`
+  - `entities/approvals/`

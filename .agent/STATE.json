@@ -9,8 +9,16 @@
     "project": null,
     "context_paths": [
       ".agent/POLICY.md",
+      ".agent/REGISTRY.json",
       ".agent/STATE.json",
-      ".agent/AGENT.md"
+      ".agent/AGENT.md",
+      "WORKFLOW.md",
+      "WORKSPACE_SPEC.md",
+      "ROADMAP.md",
+      "CHANGELOG.md",
+      "entities/tooling/README.md",
+      "entities/README.md",
+      "entities/sessions/README.md"
     ],
     "current_goals": []
   },

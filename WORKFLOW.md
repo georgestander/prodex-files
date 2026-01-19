@@ -11,19 +11,19 @@ A separate repo (your **instance**) holds your real SSOT and personal content.
 - Should stay generic (no personal tasks, no private logs, no credentials).
 
 **personal instance (e.g. `personal_software`)**
-- Your real `.agent/*` SSOT, `tasks/`, `projects/`, `notes/`, and `sessions/`.
+- Your real `.agent/*` SSOT and `entities/` content (notes/tasks/projects/prompts/sessions/tooling/approvals + other entity types).
 
 ## Updating prodex from an instance
 
 When you improve the system while working in your instance repo:
 
 1) Make the change in the instance repo (usually under one of these paths):
-   - `tooling/`
-   - `sessions/_template/`
+   - `entities/tooling/`
+   - `entities/sessions/_template/`
    - `entities/_template/`
    - `entities/README.md`
-   - `sessions/README.md`
-   - `prompts/` (only if you want that prompt template in the framework)
+   - `entities/sessions/README.md`
+   - `entities/prompts/` (only if you want that prompt template in the framework)
 
 2) Copy the relevant file(s) into `prodex`.
 
@@ -34,6 +34,10 @@ When you improve the system while working in your instance repo:
 - `.agent/LOG.ndjson` from your instance (keep prodex log empty or minimal)
 - `.agent/AGENT.md` with personal identity/state
 - `.agent/STATE.json` with personal pointers
-- Any `tasks/` or `notes/` that are personal
-- Any real `sessions/<id>/` from your instance (templates are fine)
+- Any real personal content under `entities/` (projects/notes/tasks/etc) — templates are fine
+- Any real `entities/sessions/<id>/` from your instance (templates are fine)
 - Secrets/credentials
+
+## Roadmap
+
+See `ROADMAP.md` for the scaffold → agent OS plan.

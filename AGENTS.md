@@ -12,6 +12,6 @@ On every run:
 1) Read `.agent/POLICY.md` first.
 2) Load `.agent/STATE.json` to rehydrate context.
 3) Append events to `.agent/LOG.ndjson` (never rewrite history).
-4) Write session artifacts to `sessions/<session_id>/...`.
+4) Write session artifacts to `entities/sessions/<session_id>/...`.
 
 Voice/values contract: `SOUL.md`.

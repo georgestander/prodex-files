@@ -54,7 +54,7 @@ printenv OPENAI_API_KEY | codex login --with-api-key
 
 From the repo root:
 ```sh
-./tooling/codex_ps.sh
+./entities/tooling/codex_ps.sh
 ```
 
 This starts Codex in this repo and sends a **read-only rehydrate** prompt first, so the agent loads the SSOT files before doing anything else.
@@ -66,13 +66,19 @@ Codex (like any chat) starts fresh on restart unless you **rehydrate** context f
 In prodex, memory is explicit and inspectable:
 - **Rules**: `.agent/POLICY.md`
 - **Current state (small)**: `.agent/STATE.json`
+- **Registry (discoverability)**: `.agent/REGISTRY.json`
 - **Event log (append-only)**: `.agent/LOG.ndjson`
-- **Run artifacts**: `sessions/<session_id>/...`
+- **Run artifacts**: `entities/sessions/<session_id>/...`
 - **Entity-scoped meaning**: `entities/<type>/<slug>/notes.md`
+
+For identity-bearing actions (send/post/publish), use an approval queue:
+- `entities/approvals/pending/` → `entities/approvals/approved/` → `entities/approvals/executed/`
+
+Workspace contract: `WORKSPACE_SPEC.md`.
 
 ## First run (manual rehydrate prompt)
 
-If you don’t want to use `./tooling/codex_ps.sh`, start Codex and send this as your first message:
+If you don’t want to use `./entities/tooling/codex_ps.sh`, start Codex and send this as your first message:
 
 ```text
 REHYDRATE (READ-ONLY):
@@ -83,6 +89,7 @@ REHYDRATE (READ-ONLY):
 Steps:
 - Read .agent/POLICY.md first.
 - Read .agent/STATE.json next.
+- Read .agent/REGISTRY.json next (canonical discoverability).
 - Read each path in STATE.json.active.context_paths (if present).
 - Scan .agent/LOG.ndjson for recent events relevant to STATE.json.active.project (or last_session).
 
@@ -95,16 +102,21 @@ Output:
 
 - `.agent/POLICY.md`: your guardrails and operating rules.
 - `.agent/STATE.json`: what files to load first (`active.context_paths`).
-- `sessions/_template/`: what each run should produce (`session.json`, `summary.md`).
+- `.agent/REGISTRY.json`: canonical tool + workspace discoverability.
+- `entities/sessions/_template/`: what each run should produce (`session.json`, `summary.md`).
 - `entities/_template/`: what an entity folder looks like.
 
 ## What should stay empty/clean (framework principle)
 
 If you publish this repo publicly, avoid committing:
 - real personal logs (`.agent/LOG.ndjson` should stay empty or contain only generic examples)
-- real personal sessions under `sessions/<id>/...` (templates are fine)
+- real personal sessions under `entities/sessions/<id>/...` (templates are fine)
 - secrets/credentials
 
 ## Workflow
 
 See `WORKFLOW.md` for how to keep this framework separate from a personal “instance” repo.
+
+## Roadmap
+
+See `ROADMAP.md`.

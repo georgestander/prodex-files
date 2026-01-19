@@ -2,8 +2,8 @@
 set -euo pipefail
 
 usage() {
-  echo "Usage: tooling/new_entity.sh <type> <slug> [title]" >&2
-  echo "Example: tooling/new_entity.sh people hano_gardener \"Hano (gardener)\"" >&2
+  echo "Usage: entities/tooling/new_entity.sh <type> <slug> [title]" >&2
+  echo "Example: entities/tooling/new_entity.sh people hano_gardener \"Hano (gardener)\"" >&2
 }
 
 if [[ "${1:-}" == "" || "${2:-}" == "" ]]; then
@@ -15,7 +15,7 @@ type="$1"
 slug="$2"
 title="${3:-}"
 
-repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 entity_dir="$repo_root/entities/$type/$slug"
 
 mkdir -p "$entity_dir/sources" "$entity_dir/artifacts"
