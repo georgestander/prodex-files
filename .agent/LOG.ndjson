@@ -1,0 +1,2 @@
+{"ts":"2026-01-19T12:43:00+02:00","event":"entities_reorg","note":"Moved scaffold workspace folders under entities/ and updated policy/state/registry accordingly."}
+{"ts":"2026-01-19T13:49:29+02:00","event":"release_notes","note":"Added CHANGELOG.md with v0.2.0 release notes."}

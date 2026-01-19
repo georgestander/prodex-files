@@ -19,4 +19,8 @@ Examples:
 - `entities/vendors/cloudflare/`
 
 Helper:
-- `tooling/new_entity.sh`
+- `entities/tooling/new_entity.sh`
+
+Workspace convention in this repo:
+- The workspace “surfaces” are also stored under `entities/`:
+  - `entities/notes/`, `entities/tasks/`, `entities/prompts/`, `entities/projects/`, `entities/sessions/`, `entities/tooling/`, `entities/approvals/`.

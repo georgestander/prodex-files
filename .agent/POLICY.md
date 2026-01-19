@@ -6,19 +6,23 @@ Single source of truth (SSOT):
 - Rules: `.agent/POLICY.md` (this file)
 - Working memory: `.agent/AGENT.md`
 - Structured state: `.agent/STATE.json`
+- Registry (discoverability): `.agent/REGISTRY.json`
 - Append-only log: `.agent/LOG.ndjson`
-- Session artifacts: `sessions/<session_id>/...`
+- Session artifacts: `entities/sessions/<session_id>/...`
 
 Workspace layout:
-- Notes: `notes/`
-- Tasks: `tasks/`
-- Prompts (prompt templates): `prompts/`
-- Projects: `projects/`
-- Tooling configs/allowlists: `tooling/`
+- Entities (primary): `entities/`
+  - Approvals (approval queue): `entities/approvals/`
+  - Notes: `entities/notes/`
+  - Tasks: `entities/tasks/`
+  - Prompts (prompt templates): `entities/prompts/`
+  - Projects: `entities/projects/`
+  - Sessions: `entities/sessions/`
+  - Tooling configs/allowlists: `entities/tooling/`
 
 Hard rule: If any other file conflicts with this policy, follow this policy.
 
-Prompts are user-owned: propose candidates, but do not create or modify files under `prompts/` unless the user explicitly asks or approves.
+Prompts are user-owned: propose candidates, but do not create or modify files under `entities/prompts/` unless the user explicitly asks or approves.
 
 ## Allowed primitives
 
@@ -51,7 +55,7 @@ AUTO (low‑risk writes):
 - Allowed without asking first (keep it inspectable and report changes):
   - Update `.agent/AGENT.md` (working memory) and `.agent/STATE.json`.
   - Append a single event line to `.agent/LOG.ndjson` for important actions.
-  - Write session artifacts under `sessions/<session_id>/` (summaries, drafts, exports, scratch).
+  - Write session artifacts under `entities/sessions/<session_id>/` (summaries, drafts, exports, scratch).
 - Not allowed: anything in Guardrails; stop and ask.
 
 APPLY (guardrail actions):
@@ -61,7 +65,7 @@ APPLY (guardrail actions):
 
 - Session id format: `YYYYMMDD_HHMMSS` (local time).
 - Append-only log: one JSON object per line in `.agent/LOG.ndjson`; never rewrite existing lines.
-- Session artifacts live under `sessions/<session_id>/...` to keep `.agent/AGENT.md` small.
+- Session artifacts live under `entities/sessions/<session_id>/...` to keep `.agent/AGENT.md` small.
 
 ## Legacy layout (may exist)
 

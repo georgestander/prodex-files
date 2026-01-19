@@ -1,2 +1,9 @@
-.ics
+*.ics
 .DS_Store
+
+# Keep the scaffold clean (don’t commit runtime artifacts)
+entities/sessions/*
+!entities/sessions/_template/
+!entities/sessions/README.md
+
+entities/approvals/**/*.json
