@@ -10,6 +10,8 @@ This repo is a **framework**: it defines conventions, templates, and a minimal f
 
 It is **not** your personal memory by itself. “Memory” is created as you use it (via logs, state, sessions, and entity notes).
 
+If you're curious about the path that led here, [sense-1-workspace](https://github.com/georgestander/sense-1-workspace) documents an earlier, more exploratory iteration of these ideas in practice.
+
 ## Install Codex CLI
 
 Prodex is designed to be run with **OpenAI Codex CLI**.

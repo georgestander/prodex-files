@@ -4,6 +4,8 @@ Prodex is a **file-first agent operating system scaffold**: a system you can “
 
 This roadmap is written to keep the **system repo** (`prodex`) clean and reusable while enabling production-grade “instances” (private workspaces).
 
+For a concrete example of how some of these ideas evolved in practice, see [sense-1-workspace](https://github.com/georgestander/sense-1-workspace), which now includes the desktop-app path this roadmap originally pointed toward.
+
 ## North Star
 
 Ship a production-ready agent runtime + UI that:
@@ -72,20 +74,22 @@ Deliverables:
 Success criteria:
 - A non-technical user can operate the agent without touching the terminal.
 
-### 3) Desktop App v1 (Packaged Runtime)
+### 3) Desktop App Learnings (Reference Implementation → Reusable System)
 
 Deliverables:
-- Desktop wrapper (Electron or Tauri) that:
-  - bundles or manages the runtime (Node/Python as needed)
-  - uses OS keychain for secrets
-  - supports multi-workspace switching
-  - runs offline-first where possible
-- Clear boundary between:
+- Treat the desktop implementation in [sense-1-workspace](https://github.com/georgestander/sense-1-workspace) as the proving ground for the packaged runtime.
+- Extract the reusable architectural lessons back into `prodex`, especially around:
+  - runtime packaging (Node/Python management)
+  - OS keychain / secret handling
+  - multi-workspace switching
+  - offline-first behavior where possible
+- Codify the boundary between:
   - **engine** (agent + tools)
   - **UI** (approval, context browsing, task control)
+- Decide what belongs in the generic scaffold vs what should stay instance-specific.
 
 Success criteria:
-- Installable app that can run the full workflow without manual environment setup.
+- `prodex` documents and preserves the reusable system patterns proven by the desktop app, without turning the scaffold repo into a product-specific implementation.
 
 ### 4) Engine Hardening (Codex Integration → Fork Decision)
 

@@ -1,5 +1,10 @@
 *.ics
 .DS_Store
+node_modules/
+.omx/
+docs/
+apps/
+agents/
 
 # Keep the scaffold clean (don’t commit runtime artifacts)
 entities/sessions/*
