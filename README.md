@@ -10,7 +10,7 @@ This repo is a **framework**: it defines conventions, templates, and a minimal f
 
 It is **not** your personal memory by itself. “Memory” is created as you use it (via logs, state, sessions, and entity notes).
 
-If you're curious about the path that led here, [sense-1-workspace](https://github.com/georgestander/sense-1-workspace) documents an earlier, more exploratory iteration of these ideas in practice.
+If you're curious about why, [sense-1-workspace](https://github.com/georgestander/sense-1-workspace) is the continuation of this.
 
 ## Install Codex CLI
 
